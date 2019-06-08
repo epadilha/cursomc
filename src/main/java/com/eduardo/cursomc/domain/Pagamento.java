@@ -9,6 +9,7 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
 import com.eduardo.cursomc.domain.enums.EstadoPagamento;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -18,6 +19,7 @@ public class Pagamento {
 	private Integer id;
 	private Integer estado;
 	
+	@JsonBackReference
 	@OneToOne
 	@JoinColumn(name="pedido_id")
 	@MapsId
